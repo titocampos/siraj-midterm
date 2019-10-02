@@ -1,0 +1,21 @@
+{
+  "name": "midterm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app",
+    "watch": "nodemon src/app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "firebase-admin": "^8.6.0",
+    "nodemon": "^1.19.2",
+    "stripe": "^7.9.1"
+  }
+}
