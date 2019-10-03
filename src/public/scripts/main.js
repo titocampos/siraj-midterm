@@ -6,12 +6,6 @@ var config = {
     appId: "1:1076010716137:web:517890c1d45e0804071978"
 };
 
-//,
-//storageBucket: "first-project-83b31.appspot.com",
-//databaseURL: "https://first-project-83b31.firebaseio.com",
-//measurementId: "G-NPYBWZ301R",    
-//messagingSenderId: "1076010716137"
-
 firebase.initializeApp(config);
 
 function signIn(provider) {
