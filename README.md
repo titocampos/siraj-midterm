@@ -70,6 +70,7 @@ http://localhost:3500/
 ### Firebase
 ```
 https://codelabs.developers.google.com/codelabs/firebase-web/#15
+https://codelabs.developers.google.com/codelabs/firestore-web/#0
 https://github.com/balta-io/1965
 https://medium.com/@_josueperalta/using-firebase-auth-with-a-custom-node-js-server-part-1-53bdb622c89a
 https://codeforgeek.com/manage-session-using-node-js-express-4/
