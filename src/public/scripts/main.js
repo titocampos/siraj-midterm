@@ -6,12 +6,6 @@ var config = {
     appId: "1:1076010716137:web:517890c1d45e0804071978"
 };
 
-//,
-//storageBucket: "first-project-83b31.appspot.com",
-//databaseURL: "https://first-project-83b31.firebaseio.com",
-//measurementId: "G-NPYBWZ301R",    
-//messagingSenderId: "1076010716137"
-
 firebase.initializeApp(config);
 
 function signIn(provider) {
@@ -101,15 +95,18 @@ function addSizeToGoogleProfilePic(url) {
     form.submit();
 }
   
-function addCheckoutMethod(elCheckout, elError, name, description, charge_amount, charge_currency, stripe_key) {
+function addCheckoutMethod(elCheckout, elError, name, description, charge_amount, charge_currency, stripe_key, charge_queries) {
   const handler = StripeCheckout.configure({
     key: stripe_key,
     locale: 'auto',
     token: async token => {
-      let res = await charge(token, charge_amount, charge_currency);
+      let res = await charge(token, description, charge_amount, charge_currency, charge_queries);
       console.log(res);
       if (res.hasOwnProperty('status') && res.status === "succeeded"){
-        postForm('/v1/home', {});
+        firebase.auth().currentUser.getIdToken()
+          .then(idToken => {
+          postForm('/v1/home', {userID: idToken}, 'get');  
+          }).catch();				
       }
       else{
         return elError.innerHTML = "<p>Purchase Failed!</p>";
@@ -130,15 +127,20 @@ function addCheckoutMethod(elCheckout, elError, name, description, charge_amount
   window.addEventListener('popstate', () => handler.close());
 }
 
-async function charge(token, amount, currency) {
+async function charge(token, description, amount, currency, queries) {
+  const idToken =  await  firebase.auth().currentUser.getIdToken();
+
   const res = await fetch('/v1/charge', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
           token,
+          userID: idToken,
           charge: {
               amount,
+              description, 
               currency,
+              queries
           },
       }),
   });

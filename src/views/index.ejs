@@ -48,6 +48,7 @@
 	<!-- <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-messaging.js"></script>-->
 	<script src="/scripts/main.js"></script>
 	<script>
+		history.pushState(null, '', location.href.split('?')[0]);
 		var signInButtonElement = document.getElementById('signinButton');
 		var signOutButtonElement = document.getElementById('signoutButton');
 		var createUserButtonElement = document.getElementById('createUserButton');
@@ -97,7 +98,7 @@
 				console.log(user);
 				return firebase.auth().currentUser.getIdToken()
       				.then(idToken => {
-						postForm('/v1/payment', {userID: idToken});  
+						postForm('/v1/home', {userID: idToken}, 'get');  
       				}).catch();				
     		} else {
 				userPicElement.style.backgroundImage = 'url("/images/profile_placeholder.png")';

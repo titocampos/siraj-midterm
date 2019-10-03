@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
     <link href="/styles/main.css" rel="stylesheet" type="text/css" media="all" />
- </head>
+<!--
+    <script type="text/javascript">
+        var uri = window.location.toString();
+        if (uri.indexOf("?") > 0) {
+            var clean_uri = uri.substring(0, uri.indexOf("?"));
+            window.history.replaceState({}, document.title, clean_uri);
+        }
+    </script> 
+-->        
+</head>
  <body class="home-page">
     <div class="header">
         <div class="logo">
@@ -25,9 +34,7 @@
     </div>
     <section>
             <h1><%= title %></h1>
-            <p>Welcome,  <strong><%= stripeEmail %></strong></p>
-            <p>Payment-id: <strong><%= stripeToken %></strong></p>
-            <p>Payment-type: <strong><%= stripeTokenType %></strong></p>
+            <p>Your credit: <strong><%= credit %></strong></p>
     </section>
 	<div class="footer">
         <p>Trading CFDs and FX Options entail risk and could result in the loss of your capital.</p>

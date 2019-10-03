@@ -78,11 +78,11 @@
         var elErrorElement3 = document.getElementById('error3');
 
         addCheckoutMethod(CheckoutElement1, elErrorElement1, 
-               "<%= data_name %>", "<%= data_description %>", <%= val_1 %>, "usd", "<%= api_key %>");
+               "<%= data_name %>", "One-time payment", <%= val_1 %>, "usd", "<%= api_key %>", 1);
         addCheckoutMethod(CheckoutElement2, elErrorElement2, 
-               "<%= data_name %>", "<%= data_description %>", <%= val_2 %>, "usd", "<%= api_key %>");
+               "<%= data_name %>", "Payment per 12 queries", <%= val_2 %>, "usd", "<%= api_key %>", 12);
         addCheckoutMethod(CheckoutElement3, elErrorElement3, 
-               "<%= data_name %>", "<%= data_description %>", <%= val_3 %>, "usd", "<%= api_key %>");
+               "<%= data_name %>", "Payment per 120 queries", <%= val_3 %>, "usd", "<%= api_key %>", 120);
 
         signOutButtonElement.addEventListener('click', signOut);
     
