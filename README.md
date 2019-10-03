@@ -31,6 +31,15 @@ module.exports = {
   }
 }
 ```
+In */src/public/scripts/main.js* replace config with your public Firebase information, that can be found in Firebase console.
+```
+var config = {
+    apiKey: "YOUR PUBLIC API KEY",
+    authDomain: "YOUR AUTH DOMAIN",
+    projectId: "YOUR PROJECT ID",
+    appId: "YOUR APP ID"
+};
+```
 Also save your file *serviceAccountKey.json*, in  */src/config/* with your Firebase private key credentials
 
 ## Running
